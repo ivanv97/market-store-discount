@@ -24,3 +24,4 @@
 9. In the main method the _showInvoice_ method is called three times create three different cards instances with various values of the turnover.
 
 **To start the application _build_ the code from your IDE and click _Run_.**
+**Or simply navigate to the _bin_ folder of the application in the command prompt and run _"java app.start.MainClass"_**
