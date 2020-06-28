@@ -13,7 +13,6 @@ public class BronzeCard extends Card {
 	 */
 	@Override
 	protected void calculateDiscountRate() {
-		double turnover = getTurnover();
 		if (turnover >= 100 && turnover <= 300) {
 			setDiscountRate(1);
 			return;

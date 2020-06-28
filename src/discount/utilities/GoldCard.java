@@ -16,8 +16,8 @@ public class GoldCard extends Card {
 	protected void calculateDiscountRate() {
 		double discountRate = 2;
 		setDiscountRate(discountRate);
-		double turnover = getTurnover();
-		while ((turnover -= 100) >= 100 && getDiscountRate() < 10) {
+		double turnoverCopy = turnover;
+		while ((turnoverCopy -= 100) >= 100 && getDiscountRate() < 10) {
 			discountRate += 1;
 			setDiscountRate(discountRate);
 		}

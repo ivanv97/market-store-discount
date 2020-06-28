@@ -3,7 +3,7 @@ package discount.utilities;
 /*Abstract class that is base for specific types of cards*/
 public abstract class Card {
 	private String ownerName;
-	private double turnover;
+	protected double turnover;
 	private double discountRate;
 
 	public Card(String ownerName, double turnover) {
@@ -25,7 +25,9 @@ public abstract class Card {
 	}
 
 	public void setTurnover(double turnover) {
-		this.turnover = turnover;
+		if (turnover > 0) {
+			this.turnover = turnover;
+		}
 	}
 
 	public double getDiscountRate() {
@@ -33,7 +35,9 @@ public abstract class Card {
 	}
 
 	protected void setDiscountRate(double discountRate) {
-		this.discountRate = discountRate / 100;
+		if (discountRate > 0 && discountRate <= 100) {
+			this.discountRate = discountRate / 100;
+		}
 	}
 
 	/*

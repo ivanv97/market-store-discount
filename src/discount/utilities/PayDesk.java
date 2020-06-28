@@ -14,7 +14,7 @@ public final class PayDesk {
 	/*
 	 * Prints the invoice for the customer depending on his card type
 	 */
-	public static void showInvoice(CardTypes cardType, float turnover, float valueOfPurchase) {
+	public static void showInvoice(CardTypes cardType, double turnover, double valueOfPurchase) {
 		switch (cardType) {
 		case BRONZE_CARD:
 			card = new BronzeCard("Ivan", turnover);
