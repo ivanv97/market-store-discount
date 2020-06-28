@@ -2,7 +2,7 @@ package discount.utilities;
 
 public class BronzeCard extends Card {
 
-	public BronzeCard(String ownerName, float turnover) {
+	public BronzeCard(String ownerName, double turnover) {
 		super(ownerName, turnover);
 	}
 
@@ -15,14 +15,13 @@ public class BronzeCard extends Card {
 	protected void calculateDiscountRate() {
 		double turnover = getTurnover();
 		if (turnover >= 100 && turnover <= 300) {
-			setDiscountRate(0.01d);
+			setDiscountRate(1);
 			return;
 		} else if (turnover > 300) {
-			setDiscountRate(0.025d);
+			setDiscountRate(2.5);
 			return;
 		}
-
-		setDiscountRate(0d);
+		setDiscountRate(0);
 	}
 
 }

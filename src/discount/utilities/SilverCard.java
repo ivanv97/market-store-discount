@@ -2,7 +2,7 @@ package discount.utilities;
 
 public class SilverCard extends Card {
 
-	public SilverCard(String ownerName, float turnover) {
+	public SilverCard(String ownerName, double turnover) {
 		super(ownerName, turnover);
 	}
 
@@ -13,10 +13,9 @@ public class SilverCard extends Card {
 	@Override
 	protected void calculateDiscountRate() {
 		if (getTurnover() > 300) {
-			setDiscountRate(0.035d);
+			setDiscountRate(3.5);
 			return;
 		}
-		setDiscountRate(0.02d);
+		setDiscountRate(2);
 	}
-
 }

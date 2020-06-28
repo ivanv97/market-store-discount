@@ -6,7 +6,7 @@ public abstract class Card {
 	private double turnover;
 	private double discountRate;
 
-	public Card(String ownerName, float turnover) {
+	public Card(String ownerName, double turnover) {
 		this.ownerName = ownerName;
 		this.turnover = turnover;
 		calculateDiscountRate();
@@ -29,11 +29,11 @@ public abstract class Card {
 	}
 
 	public double getDiscountRate() {
-		return discountRate;
+		return discountRate * 100;
 	}
 
 	protected void setDiscountRate(double discountRate) {
-		this.discountRate = discountRate;
+		this.discountRate = discountRate / 100;
 	}
 
 	/*

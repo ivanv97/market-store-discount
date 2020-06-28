@@ -38,21 +38,21 @@ public final class PayDesk {
 		percentFormatter.setMinimumFractionDigits(1);
 
 		System.out.println("Purchase value: " + currencyFormatter.format(valueOfPurchase));
-		System.out.println("Discount rate: " + percentFormatter.format(card.getDiscountRate()));
+		System.out.println("Discount rate: " + percentFormatter.format(card.getDiscountRate() / 100));
 		System.out.println("Discount: " + currencyFormatter.format(discount));
 		System.out.println("Total: " + currencyFormatter.format(getTotal(valueOfPurchase)));
 	}
 
 	/*
 	 * Discount is set by multiplying the value of purchase times the pre-calculated
-	 * discount rate that is specific to the type of card and turnover
+	 * discount rate that is specific to the type of card and turnover divided by 100 to get percent
 	 */
-	private static void setDiscount(float valueOfPurchase) {
-		discount = valueOfPurchase * card.getDiscountRate();
+	private static void setDiscount(double valueOfPurchase) {
+		discount = valueOfPurchase * card.getDiscountRate() / 100;
 	}
 
 	/* Total equals the value of purchase minus the pre-calculated discount */
-	private static double getTotal(float valueOfPurchase) {
+	private static double getTotal(double valueOfPurchase) {
 		return valueOfPurchase - discount;
 	}
 }

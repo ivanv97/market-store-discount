@@ -10,9 +10,9 @@ public class MainClass {
 	 */
 	public static void main(String[] args) {
 		PayDesk.showInvoice(CardTypes.BRONZE_CARD, 0, 150);
-		System.out.print('\n');
+		System.out.println();
 		PayDesk.showInvoice(CardTypes.SILVER_CARD, 600, 850);
-		System.out.print('\n');
+		System.out.println();
 		PayDesk.showInvoice(CardTypes.GOLD_CARD, 1500, 1300);
 	}
 }
