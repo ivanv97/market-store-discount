@@ -3,6 +3,8 @@ package discount.utilities;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import discount.exceptions.InvalidCardValueException;
+
 public final class PayDesk {
 	private PayDesk() {
 	}
@@ -13,7 +15,11 @@ public final class PayDesk {
 	 * Prints the invoice for the customer depending on his card type
 	 */
 	public static void showInvoice(Card card, double valueOfPurchase) {
-		setDiscount(valueOfPurchase, card);
+		if (valueOfPurchase > 0) {
+			setDiscount(valueOfPurchase, card);
+		} else {
+			throw new InvalidCardValueException("Value of purchase must be more than 0!");
+		}
 
 		// So we can format the numbers as the US local currency
 		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US);

@@ -1,5 +1,7 @@
 package discount.utilities;
 
+import discount.exceptions.InvalidCardValueException;
+
 /*Abstract class that is base for specific types of cards*/
 public abstract class Card {
 	private String ownerName;
@@ -8,7 +10,7 @@ public abstract class Card {
 
 	public Card(String ownerName, double turnover) {
 		this.ownerName = ownerName;
-		this.turnover = turnover;
+		setTurnover(turnover);
 		calculateDiscountRate();
 	}
 
@@ -24,9 +26,11 @@ public abstract class Card {
 		return turnover;
 	}
 
-	public void setTurnover(double turnover) {
-		if (turnover > 0) {
+	public void setTurnover(double turnover) throws InvalidCardValueException {
+		if (turnover >= 0) {
 			this.turnover = turnover;
+		} else {
+			throw new InvalidCardValueException("Invalid turnover! Must be a positive number or zero!");
 		}
 	}
 
@@ -34,9 +38,11 @@ public abstract class Card {
 		return discountRate * 100;
 	}
 
-	protected void setDiscountRate(double discountRate) {
-		if (discountRate > 0 && discountRate <= 100) {
+	protected void setDiscountRate(double discountRate) throws InvalidCardValueException {
+		if (discountRate >= 0 && discountRate <= 100) {
 			this.discountRate = discountRate / 100;
+		} else {
+			throw new InvalidCardValueException("Invalid discount rate! Must be between 0 and 100 (including)!");
 		}
 	}
 
