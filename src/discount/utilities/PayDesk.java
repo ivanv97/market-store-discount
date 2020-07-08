@@ -7,28 +7,13 @@ public final class PayDesk {
 	private PayDesk() {
 	}
 
-	private static Card card;
-
 	private static double discount;
 
 	/*
 	 * Prints the invoice for the customer depending on his card type
 	 */
-	public static void showInvoice(CardTypes cardType, double turnover, double valueOfPurchase) {
-		switch (cardType) {
-		case BRONZE_CARD:
-			card = new BronzeCard("Ivan", turnover);
-			break;
-		case SILVER_CARD:
-			card = new SilverCard("Dragan", turnover);
-			break;
-		case GOLD_CARD:
-			card = new GoldCard("Petkan", turnover);
-		default:
-			break;
-		}
-
-		setDiscount(valueOfPurchase);
+	public static void showInvoice(Card card, double valueOfPurchase) {
+		setDiscount(valueOfPurchase, card);
 
 		// So we can format the numbers as the US local currency
 		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US);
@@ -45,9 +30,10 @@ public final class PayDesk {
 
 	/*
 	 * Discount is set by multiplying the value of purchase times the pre-calculated
-	 * discount rate that is specific to the type of card and turnover divided by 100 to get percent
+	 * discount rate that is specific to the type of card and turnover divided by
+	 * 100 to get percent
 	 */
-	private static void setDiscount(double valueOfPurchase) {
+	private static void setDiscount(double valueOfPurchase, Card card) {
 		discount = valueOfPurchase * card.getDiscountRate() / 100;
 	}
 

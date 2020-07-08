@@ -16,12 +16,10 @@
 6. For _GoldCard_ discount rate is calculated by following rules:
    - The default discount rate is 2%
    - For each $100 of the turnover the discount rate grows by 1% but 10% is the maximum.
-7. PayDesk is a final (cannot be subclassed) utility class that holds a static method - _showInvoice(CardTypes cardType, double turnover, double valueOfPurchase)_ - which prints the invoice for the particular customer:
-   - First it creates instance of the card - bronze, silver or gold.
-   - Then it calculates the discount - value of the purchase times the discount rate
-   - And finally gets the total - value of the purchase minus the calculated discount
-8. _CardTypes_ is an enumeration containing the constants for the three types of cards - it is passed as a parameter to the PayDesk's _showInvoice(CardTypes cardType, double turnover, double valueOfPurchase)_ method so that the correct card is instantiated.
-9. In the main method the _showInvoice_ method is called three times creating three different cards instances with various values of the turnover.
+7. PayDesk is a final (cannot be subclassed) utility class that holds a static method - _showInvoice(Card card, double valueOfPurchase)_ - which prints the invoice for the particular customer:
+   - It calculates the discount - value of the purchase times the discount rate
+   - Then gets the total - value of the purchase minus the calculated discount
+8. In the main method the _showInvoice_ method is called three times creating three different cards instances with various values of the turnover.
 
 **To start the application _build_ the code from your IDE and click _Run_.**
 **Or simply navigate to the _bin_ folder of the application in the command prompt and run _"java app.start.MainClass"_**
